@@ -11,7 +11,7 @@ try
 	}
 
 	if (($_POST['pseudo'] != "") AND ($_POST['message'] !='')) {
-		$req = $bdd->prepare('INSERT INTO minichat(pseudo, message) VALUES (:pseudo, :message)');
+		$req = $bdd->prepare('INSERT INTO minichat(pseudo, message, date_message) VALUES (:pseudo, :message, NOW())');
 		$req->execute(array(
 			'pseudo' => $_POST['pseudo'],
 			'message' => $_POST['message']
